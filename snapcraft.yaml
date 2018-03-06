@@ -1,9 +1,9 @@
-name: pc
+name: pc-mb-vbox
 version: '16.04-0.9'
 type: gadget
 summary: PC gadget for generic devices
 description: |
-    This gadget enables generic pc devices to work with Ubuntu Core
+    Generic PC fork of AMD64 gadget. Simply adds a serial-port for VBOX.
 grade: stable
 confinement: strict
 icon: icon.png
@@ -23,3 +23,9 @@ parts:
     plugin: make
     after: [grub-prepare]
 
+slots:
+    gps:
+        interface: serial-port
+        usb-vendor: 0x0403
+        usb-product: 0x6001
+        path: /dev/serial-port-gps
